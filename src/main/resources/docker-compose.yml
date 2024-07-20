@@ -1,0 +1,25 @@
+services:
+  local-db:
+    image: postgres:16.3-bullseye
+    restart: no
+    container_name: local-db
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_PASSWORD: root
+
+  prod-db:
+    image: postgres:16.3-bullseye
+    restart: no
+    container_name: prod-db
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_PASSWORD: root
+
+  adminer:
+    image: adminer
+    container_name: adminer-1
+    restart: no
+    ports:
+      - 8081:8080
